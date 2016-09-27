@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<opml version="1.0">
+  <head>
+    <title>Outline</title>
+    <expansionState>0,1,5,6,12,13,14,15,17,20,24,26,29,30,33,34,35,37,40,44,47,48,51,54,55,56,59,60,63,64,66,68,69,71,72,74,76,77,78,81,84,85,89,93,95,97,99,101,102,105,108,109,110,112,113,116,117,119,120,121,123,125,127,129,131,133,134,136</expansionState>
+  </head>
+  <body>
+    <outline text="Programming with Sass">
+      <outline text="Introduction">
+        <outline text="I'm Alyssa"/>
+        <outline text="Here to talk about why advanced programming features of Sass language are useful"/>
+        <outline text="With every release, Sass becomes more usable as a programming language"/>
+      </outline>
+      <outline text="Why Program in Sass?">
+        <outline text="Reduce repetitive CSS">
+          <outline text="Create re-usable parameterised components"/>
+          <outline text="Save time"/>
+          <outline text="Keep code maintainable"/>
+          <outline text="Let the computer do the grunt work"/>
+        </outline>
+        <outline text="Can do things that wouldn't be possible feasible in raw CSS"/>
+      </outline>
+      <outline text="Examples">
+        <outline text="Colour pallette">
+          <outline text="Premise">
+            <outline text="Based on colour theory from online">
+              <outline text="&quot;Keep saturation and luminosity the same and vary the hue for colours that work well together&quot;"/>
+            </outline>
+            <outline text="Maybe not particularly accurate">
+              <outline text="There's a talk on colour theory at some point today"/>
+              <outline text="Still a good example"/>
+            </outline>
+          </outline>
+          <outline text="Sassification">
+            <outline text="Start with repetitive CSS"/>
+            <outline text="Turn into for loop"/>
+            <outline text="Turn into mixin"/>
+          </outline>
+          <outline text="Remove duplication">
+            <outline text="Easier to understand"/>
+            <outline text="Easier to modify and reuse">
+              <outline text="Can change base colour and have the rest update"/>
+              <outline text="Can change number of colours, range (in degrees)"/>
+            </outline>
+          </outline>
+        </outline>
+        <outline text="API Library">
+          <outline text="Purpose">
+            <outline text="Not for doing HTTP from Sass directly"/>
+            <outline text="For embedding third-party CSS into your own"/>
+          </outline>
+          <outline text="Google Web Fonts">
+            <outline text="Provides API for getting font-face rules">
+              <outline text="Parameters">
+                <outline text="Fonts"/>
+                <outline text="Variants">
+                  <outline text="weight"/>
+                  <outline text="italic?"/>
+                </outline>
+                <outline text="Subsets">
+                  <outline text="Latin"/>
+                  <outline text="Cyrillic"/>
+                  <outline text="etc"/>
+                </outline>
+              </outline>
+            </outline>
+            <outline text="Before Sassification">
+              <outline text="Have to go to the website"/>
+              <outline text="Interface is clunky"/>
+              <outline text="Have to redo every time you want to change">
+                <outline text="Might want to optimise">
+                  <outline text="Choose a subset"/>
+                  <outline text="Choose only certain weights or variants"/>
+                </outline>
+                <outline text="Might need more than originally envisaged">
+                  <outline text="Multiple subsets"/>
+                  <outline text="More weights/variants"/>
+                </outline>
+              </outline>
+            </outline>
+            <outline text="Sassify!">
+              <outline text="Challenges">
+                <outline text="Need to design an API">
+                  <outline text="Needs to allow parameter customisation"/>
+                  <outline text="Needs to be concise for defaults"/>
+                  <outline text="Need to be compatible with Ruby Sass and Libsass">
+                    <outline text="While they are theoretically the same language, Libsass lags a bit">
+                      <outline text="Some edge-cases that Libsass doesn't handle you have to hack around"/>
+                      <outline text="For example @import"/>
+                    </outline>
+                  </outline>
+                </outline>
+                <outline text="Need to handle URL-encoding">
+                  <outline text="To do this, need to handle string replacement">
+                    <outline text="Not implemented in Sass, but it's possible"/>
+                    <outline text="Strings used to be completely opaque">
+                      <outline text="No functions available from Sass for string data"/>
+                      <outline text="This made string processing impossible">
+                        <outline text="I did it anyway">
+                          <outline text="Ask me how after"/>
+                        </outline>
+                      </outline>
+                    </outline>
+                  </outline>
+                </outline>
+                <outline text="Sass has no module system">
+                  <outline text="Have to use relative paths with @import">
+                    <outline text="TODO: explain"/>
+                  </outline>
+                  <outline text="No private functions">
+                    <outline text="Prefix to avoid colission"/>
+                  </outline>
+                </outline>
+                <outline text="Need to have unit tests">
+                  <outline text="Different approaches to this">
+                    <outline text="Bootcamp">
+                      <outline text="https://github.com/thejameskyle/bootcamp"/>
+                      <outline text="BDD-style tests implemented in pure Sass"/>
+                      <outline text="Abadoned">
+                        <outline text="Author says &quot;Don't use this&quot; at top of README"/>
+                      </outline>
+                      <outline text="Felt overcomplicated"/>
+                    </outline>
+                    <outline text="git diff">
+                      <outline text="Used by sass-mq project">
+                        <outline text="https://github.com/sass-mq/sass-mq"/>
+                        <outline text="They have since moved to custom scripts"/>
+                      </outline>
+                      <outline text="SCSS and CSS file pairs"/>
+                      <outline text="Compile SCSS files">
+                        <outline text="Overwrite corresponding CSS files"/>
+                      </outline>
+                      <outline text="Run git diff to check nothing has changed"/>
+                      <outline text="Nice idea, but manual"/>
+                    </outline>
+                    <outline text="SassUnit">
+                      <outline text="https://github.com/alyssais/sassunit"/>
+                      <outline text="Same structure as git diff approach">
+                        <outline text="SCSS and CSS file pairs"/>
+                      </outline>
+                      <outline text="Built around a Ruby testing library">
+                        <outline text="Get the benefit of a mature test library"/>
+                      </outline>
+                      <outline text="Can test with multiple Sass implementations at once">
+                        <outline text="(Soon!)"/>
+                      </outline>
+                    </outline>
+                  </outline>
+                </outline>
+              </outline>
+            </outline>
+            <outline text="After Sassification">
+              <outline text="Simple API">
+                <outline text="Don't have to go through web interface"/>
+                <outline text="Easy to change"/>
+              </outline>
+              <outline text="Popular!">
+                <outline text="279 stars on GitHub"/>
+                <outline text="59th most popular Sass library on Bower"/>
+              </outline>
+            </outline>
+          </outline>
+          <outline text="Advice from development">
+            <outline text="Use @ statements">
+              <outline text="@debug">
+                <outline text="Print arbitrary output to the Terminal"/>
+              </outline>
+              <outline text="@error">
+                <outline text="Halt execution">
+                  <outline text="A bit like an exception"/>
+                  <outline text="No way to catch errors"/>
+                </outline>
+              </outline>
+              <outline text="@warn">
+                <outline text="Print warning to console">
+                  <outline text="Advise users when doing something wrong"/>
+                </outline>
+              </outline>
+            </outline>
+            <outline text="Use sass -i">
+              <outline text="Test out SassScript expressions in a REPL">
+                <outline text="Subset of the Sass language">
+                  <outline text="Things that would go on the RHS of a property"/>
+                  <outline text="Useful for testing:">
+                    <outline text="String operations"/>
+                    <outline text="Units">
+                      <outline text="The way math operations handle units in Sass is fiddly"/>
+                    </outline>
+                  </outline>
+                  <outline text="Variables">
+                    <outline text="Can assign to variables with colon"/>
+                  </outline>
+                  <outline text="Functions">
+                    <outline text="Can be called"/>
+                    <outline text="Cannot be defined">
+                      <outline text="AFAIK"/>
+                    </outline>
+                  </outline>
+                </outline>
+              </outline>
+            </outline>
+          </outline>
+        </outline>
+      </outline>
+      <outline text="Extending Sass">
+        <outline text="Alternative to writing programs in Sass">
+          <outline text="Can write in Ruby or C"/>
+          <outline text="Only compatible with a single implementation">
+            <outline text="Possible to write in C with implementation-specific adapters"/>
+          </outline>
+        </outline>
+      </outline>
+    </outline>
+  </body>
+</opml>
